@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090817">
+<title>KAALI DIAMOND STORE | Order</title>
+<style>
+:root{--bg:#090817;--panel:#171329;--line:#38265a;--gold:#ffd34e;--cyan:#55eaff;--muted:#c3bad4;--pink:#e75cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#32104c,transparent 35%),var(--bg);color:#fff;font-family:system-ui,Arial,sans-serif}
+.wrap{width:min(900px,92%);margin:auto}header{padding:20px 0;border-bottom:1px solid var(--line);background:#090817eF}
+.brand{font-weight:950;letter-spacing:1px}.brand span{color:var(--gold)}
+.hero{text-align:center;padding:32px 0 20px}.hero .diamond{font-size:3rem}.hero h1{margin:8px 0;font-size:clamp(2rem,7vw,3.4rem);line-height:1.05}.hero h1 span{color:var(--gold)}.hero p{color:var(--muted);line-height:1.6}
+form,.panel{background:linear-gradient(150deg,#1c1731,#100d1c);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0}
+h2{font-size:1.3rem;margin:0 0 14px}.hint{font-size:.9rem;color:var(--muted);line-height:1.55}
+.packages{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.option{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#ffffff05}
+.option input{accent-color:var(--gold);width:18px;height:18px}.option span{flex:1;font-weight:750}.price{color:var(--gold);font-weight:900;white-space:nowrap}
+label.field{display:block;margin:14px 0 6px;font-weight:750}
+input[type=text],input[type=file],textarea,select{width:100%;padding:13px;border-radius:10px;border:1px solid #594575;background:#0c0a17;color:#fff;font:inherit}
+input[type=file]{font-size:.9rem}small{color:var(--muted)}
+.btn{border:0;border-radius:12px;padding:14px 18px;font-weight:900;font-size:1rem;cursor:pointer;display:block;width:100%;margin-top:16px}
+.btn.primary{background:linear-gradient(100deg,var(--gold),#ff9e45);color:#1a1024}.btn.secondary{background:#2b2141;color:#fff;border:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-top:1px solid var(--line);margin-top:14px;font-weight:900}.total strong{color:var(--gold);font-size:1.2rem}
+.bank{line-height:1.8;overflow-wrap:anywhere}.bank b{color:var(--gold)}
+.notice{border:1px solid #70552b;background:#33271366;padding:13px;border-radius:12px;color:#ffe7a3;line-height:1.55;font-size:.88rem}
+#status{display:none;margin-top:14px;padding:12px;border-radius:10px;background:#123c32;color:#b8ffe7;line-height:1.5}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:25px 0 35px}
+@media(max-width:520px){.packages{grid-template-columns:1fr}form,.panel{padding:15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap brand">💎 KAALI <span>DIAMOND STORE</span></div></header>
+<main class="wrap">
+<div class="hero"><div class="diamond">💎</div><h1>FREE FIRE<br><span>TOP-UP ORDER</span></h1><p>Singapore Server • Choose packages, enter your Player ID, and select your payment receipt.</p></div>
+
+<form id="orderForm">
+<h2>1. Select your package(s)</h2>
+<div class="packages">
+<label class="option"><input type="checkbox" name="package" value="25 Diamonds" data-price="120"><span>25 Diamonds</span><b class="price">Rs. 120</b></label>
+<label class="option"><input type="checkbox" name="package" value="100 Diamonds" data-price="350"><span>100 Diamonds</span><b class="price">Rs. 350</b></label>
+<label class="option"><input type="checkbox" name="package" value="310 Diamonds" data-price="1000"><span>310 Diamonds</span><b class="price">Rs. 1,000</b></label>
+<label class="option"><input type="checkbox" name="package" value="520 Diamonds" data-price="1700"><span>520 Diamonds</span><b class="price">Rs. 1,700</b></label>
+<label class="option"><input type="checkbox" name="package" value="1,060 Diamonds" data-price="3400"><span>1,060 Diamonds</span><b class="price">Rs. 3,400</b></label>
+<label class="option"><input type="checkbox" name="package" value="2,180 Diamonds" data-price="6900"><span>2,180 Diamonds</span><b class="price">Rs. 6,900</b></label>
+<label class="option"><input type="checkbox" name="package" value="5,600 Diamonds" data-price="17000"><span>5,600 Diamonds</span><b class="price">Rs. 17,000</b></label>
+<label class="option"><input type="checkbox" name="package" value="11,500 Diamonds" data-price="35000"><span>11,500 Diamonds</span><b class="price">Rs. 35,000</b></label>
+<label class="option"><input type="checkbox" name="package" value="Weekly Lite Membership" data-price="130"><span>Weekly Lite</span><b class="price">Rs. 130</b></label>
+<label class="option"><input type="checkbox" name="package" value="Weekly Membership" data-price="580"><span>Weekly Membership</span><b class="price">Rs. 580</b></label>
+<label class="option"><input type="checkbox" name="package" value="Monthly Membership" data-price="2800"><span>Monthly Membership</span><b class="price">Rs. 2,800</b></label>
+</div>
+<div class="total"><span>Total</span><strong id="total">Rs. 0</strong></div>
+
+<label class="field" for="playerId">2. Free Fire Player ID</label>
+<input id="playerId" type="text" inputmode="numeric" placeholder="Enter your Player ID" required maxlength="30">
+
+<label class="field" for="server">Server</label>
+<select id="server" required><option value="Singapore">Singapore</option><option value="Other">Other (confirm with store)</option></select>
+
+<label class="field" for="customer">Your name (optional)</label>
+<input id="customer" type="text" placeholder="Name">
+
+<label class="field" for="receipt">3. Payment receipt screenshot</label>
+<input id="receipt" type="file" accept="image/*" required>
+<small>Choose the receipt image from your phone. Do not upload passwords or OTPs.</small>
+
+<div class="notice" style="margin-top:16px">After pressing the button, your phone will open the Android share menu (if supported). Choose WhatsApp and send the order with the receipt. If the receipt is not attached automatically, attach it in the WhatsApp chat before sending.</div>
+<button class="btn primary" type="submit">📲 Send Order & Receipt</button>
+<button class="btn secondary" type="button" id="textOnly">Open WhatsApp order (attach receipt manually)</button>
+<div id="status"></div>
+</form>
+
+<section class="panel">
+<h2>🏦 Bank Transfer Details</h2>
+<div class="bank">
+<b>Bank:</b> Bank of Ceylon<br>
+<b>Account Number:</b> 0096330162<br>
+<b>Branch:</b> Rakwana Branch (594)<br>
+<b>Account Holder:</b> MASTER K M J T SUMANARATHNA
+</div>
+<p class="hint">mCash / eZ Cash: Not available • Genie / FriMi: Not available</p>
+<p class="hint">WhatsApp / Call: <b style="color:var(--gold)">078 736 4645</b><br>Open daily: 4:00 AM – 1:00 AM</p>
+</section>
+</main>
+<footer>KAALI DIAMOND STORE • Independent store; not affiliated with Garena.</footer>
+<script>
+const WA_NUMBER = "94787364645"; // Sri Lanka number, country code included
+const boxes = [...document.querySelectorAll('input[name="package"]')];
+const totalEl = document.getElementById('total');
+const form = document.getElementById('orderForm');
+const statusEl = document.getElementById('status');
+function selected(){
+  return boxes.filter(b=>b.checked).map(b=>({name:b.value,price:Number(b.dataset.price)}));
+}
+function total(){return selected().reduce((s,p)=>s+p.price,0)}
+function money(n){return 'Rs. '+n.toLocaleString('en-LK')}
+boxes.forEach(b=>b.addEventListener('change',()=>totalEl.textContent=money(total())));
+function makeMessage(){
+  const picks=selected();
+  const player=document.getElementById('playerId').value.trim();
+  const server=document.getElementById('server').value;
+  const name=document.getElementById('customer').value.trim()||'Not provided';
+  return `KAALI DIAMOND STORE ORDER\\nName: ${name}\\nServer: ${server}\\nFree Fire Player ID: ${player}\\nPackages: ${picks.map(p=>p.name+' — '+money(p.price)).join(', ')}\\nTotal: ${money(total())}\\nPayment: Bank transfer\\nI have selected my payment receipt. Please confirm my order.`;
+}
+function openWA(message){window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`,'_blank','noopener');}
+document.getElementById('textOnly').addEventListener('click',()=>{
+ if(!selected().length){alert('Please select at least one package.');return}
+ if(!document.getElementById('playerId').value.trim()){alert('Please enter your Player ID.');return}
+ openWA(makeMessage());
+ statusEl.style.display='block';statusEl.textContent='WhatsApp opened. Please attach your payment receipt screenshot in the chat and press Send.';
+});
+form.addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(!selected().length){alert('Please select at least one package.');return}
+ const file=document.getElementById('receipt').files[0];
+ if(!file){alert('Please select your receipt screenshot.');return}
+ const message=makeMessage();
+ // Android share sheet may share both text and image; WhatsApp availability varies by browser/device.
+ try{
+   if(navigator.canShare && navigator.share && navigator.canShare({files:[file]})){
+     await navigator.share({title:'KAALI DIAMOND STORE ORDER',text:message,files:[file]});
+     statusEl.style.display='block';
+     statusEl.textContent='Share menu opened. Choose WhatsApp and send the message with the receipt.';
+   }else{
+     openWA(message);
+     statusEl.style.display='block';
+     statusEl.textContent='WhatsApp opened with the order details. Attach the selected receipt screenshot manually in WhatsApp, then press Send. Websites cannot automatically attach a file to a WhatsApp chat on every phone/browser.';
+   }
+ }catch(err){
+   if(err.name!=='AbortError'){
+     openWA(message);
+     statusEl.style.display='block';
+     statusEl.textContent='WhatsApp opened with order details. If the receipt did not go with it, attach the receipt screenshot manually before sending.';
+   }
+ }
+});
+</script>
+</body></html>
